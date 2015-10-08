@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block head_title %} Welcome | {% endblock %}
+
+<style>
+{% block style %}
+ div.jumbotron {
+  background-color: black/*#0E3D14*/;
+  color:#FFF;
+}
+
+
+{% endblock %}
+</style>
+
+{% block jumbotron %}
+{% if not request.user.is_authenticated %}
+<div class="jumbotron" >
+<div class="container">
+      <div class = "row">
+      	<div class = "col-xs-6">
+      
+
+        <h1>Приветствую на Stream Days</h1>
+        <p>Здесь вы можете найти мои стримы, мой блог, а так же еще много интересного свазанного с играми и программированием</p>
+        <p>Оставайтесь с нами</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="" role="button">Sigh Up  &raquo;</a>
+        </p>
+     
+       </div>
+<div class = 'col-sm-6'>
+	<iframe src="http://www.twitch.tv/kup9_nps/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/kup9_nps?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from Kup9_NpS on www.twitch.tv</a>
+ </div>
+</div>
+</div>
+</div>
+{% endif %}
+{% endblock %}
+
+
+{% block content%}
+
+{% if request.user.is_authenticated %}
+<h1>You are logged in!</h1>
+{{ queryset }}
+{% else %}
+<div class="row">
+
+
+  <div class="col-xs-3 pull-right ">
+		<h1>{{ title }}</h1>
+
+
+		<form method = 'POST' action = ''> {% csrf_token %}
+		{{ form|crispy }}
+		<input class = 'btn btn-primary ' type = 'submit' value = 'Sigh Up'/>
+
+</form>
+
+</div>
+
+<div class="col-sm-3">
+
+	<p class ='lead text-align-center' => Django &amp; Bootstrap</p>
+  <center>  
+  <img src="{% static 'img/logo.png' %}" class = 'img-responsive, align-center'/>
+</center>
+</div>
+
+<div class="col-sm-3">
+<i class= "fa fa-bolt fa-5x "></i>
+
+</div>
+
+{% endif %}
+{% endblock%}
+
+<!-- <body>
+	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'streamdays';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</body> -->
