@@ -47,7 +47,7 @@ INSTALLED_APPS = (
     'blog',
     'disqus',
     'crispy_forms',
-    'registration'
+    'registration',
 
     
 )
@@ -125,6 +125,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static_in_pro", 'media_root')
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
 ACCOUNT_ACTIVATION_DAYS = 7
-REGISTRATION_AUTO_LOGIN = True
+REGISTRATION_AUTO_LOGIN = False
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
