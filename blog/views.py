@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView
 from .forms import SighUpForm, ContactForm
 from django.core.mail import send_mail
 from django.conf import settings
+from .models import SighUp
 
 
 
@@ -28,8 +29,10 @@ def home(request):
 		}
 
 	if request.user.is_authenticated() and request.user.is_staff:
+		#print(SighUp.objects.all())
+		queryset = SighUp.objects.all().order_by('-timestamp').filter(full_name__icontains ='Kup9')
 		context = {
-		 'queryset': [123, 456]
+		 'queryset': queryset
 		}
 
 	return render(request, "home.html", context)
