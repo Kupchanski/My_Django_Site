@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = '!p6ih(&34su6l)pa#za9m$)z7)r9=_7*+-)a%w)y#q0x6y$mq#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['kup9nps.pythonanywhere.com']
 EMAIL_HOST = 'smtp.gmail.com'
