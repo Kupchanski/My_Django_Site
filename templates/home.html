@@ -7,44 +7,50 @@
 <style>
 {% block style %}
  div.jumbotron {
-  background-color: black/*#0E3D14*/;
+  background: linear-gradient(to top, #58434F, #00421F); 
   color:#FFF;
 }
-
-
+#footer {
+    position: fixed; /* Фиксированное положение */
+    left: 0; bottom: 0; /* Левый нижний угол */
+    padding: 10px; /* Поля вокруг текста */
+    color: #fff; /* Цвет текста */
+    width: 100%; /* Ширина слоя */
+   }
 {% endblock %}
 </style>
 
 {% block jumbotron %}
-{% if not request.user.is_authenticated %}
+
 <div class="jumbotron" >
 <div class="container">
       <div class = "row">
       	<div class = "col-xs-6">
-      
-
         <h1>Приветствую на Stream Days</h1>
-        <p>Здесь вы можете найти мои стримы, мой блог, а так же еще много интересного свазанного с играми и программированием</p>
-        <p>Оставайтесь с нами</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="" role="button">Sigh Up  &raquo;</a>
+        <p>Меня зовут Кирилл Буровин. </p>
+        <p>Я разработчик веб-приложений на Python/Django</p>
+        <p>А это мой небольшой сайт-визитка. Здесь я буду выкладывать ссылки на мои будущие проекты, и собирать портфолио.</p>
+        <p>Связаться со мной можно через форму в шапке сайта или через указанные снизу контакты. </p>
+        <p> Спасибо, что заглянули! </p>
+       <!--  <p>
+          <a class="btn btn-lg btn-primary" href="accounts/register" role="button">Зарегистрироваться!  &raquo;</a>
         </p>
-     
+      -->
        </div>
 <div class = 'col-sm-6'>
-	<iframe src="http://www.twitch.tv/kup9_nps/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/kup9_nps?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from Kup9_NpS on www.twitch.tv</a>
+	<iframe src="http://www.twitch.tv/kup9_nps/embed" frameborder="0" scrolling="no" height="450" width="620"></iframe><a href="http://www.twitch.tv/kup9_nps?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from Kup9_NpS on www.twitch.tv</a>
  </div>
 </div>
 </div>
 </div>
-{% endif %}
+
 {% endblock %}
 
 
 {% block content%}
 
 {% if request.user.is_authenticated %}
-<h1>You are logged in!</h1>
+<h1 class="col-xs-3 pull-right " >Вы вошли!</h1>
 
       {% if queryset %}
       <h2>Welcome, Staff</h2>
@@ -71,21 +77,59 @@
 </form>
 
 </div>
-
+{% endif %}
 <div class="col-sm-3">
 
-	<p class ='lead text-align-center' => Django &amp; Bootstrap</p>
+	<p class ='lead text-align-center' => Python  </p>
   <center>  
-  <img src="{% static 'img/logo.png' %}" class = 'img-responsive, align-center'/>
+  <img src="{% static 'img/python.png' %}" class = 'img-responsive, align-center'/>
+</center>
+</div>
+<div class="col-sm-3">
+
+  <p class ='lead text-align-center' =>  Django </p>
+  <center>  
+  <img src="{% static 'img/django.png' %}" class = 'img-responsive, align-center'/>
+</center>
+</div>
+<div class="col-sm-3">
+
+  <p class ='lead text-align-center' => Bootstrap </p>
+  <center>  
+  <img src="{% static 'img/bootstrap.png' %}" class = 'img-responsive, align-center'/>
 </center>
 </div>
 
+
+
+</div> 
+<div id='footer'>
+    <hr 'color:#FFF' "size: 10px" 'align:bottom'/>
 <div class="col-sm-3">
-<i class= "fa fa-bolt fa-5x "></i>
+<p class ='lead text-align-center' => Made by Kirill Burovin </p>
+
+</div>
+<div class="col-sm-4 pull-right ">
+  <div class=" pull-left">
+<p class ='lead ' => Find me there: </p>
+</div>
+<div class="col-sm-2 pull-right ">
+<a  href="https://vk.com/kirich321"><i class= "fa fa-vk fa-3x "></i></a> 
+</div>
+<div class="col-sm-2 pull-right ">
+<a  href="https://github.com/Kup9NpS"><i class= "fa fa-github fa-3x "></i></a> 
+</div>
+<div class="col-sm-2 pull-right">
+<a  href="http://www.twitch.tv/Kup9_NpS"><i class= "fa fa-twitch fa-3x "></i></a> 
+</div>
+<div class="col-sm-2 pull-right">
+<a  href="https://www.facebook.com/profile.php?id=100001439172735"><i class= "fa fa-facebook fa-3x "></i></a> 
+</div>
 
 </div>
 
-{% endif %}
+</div>
+
 {% endblock%}
 
 <!-- <body>

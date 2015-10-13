@@ -9,13 +9,13 @@ from .models import SighUp
 
 
 def home(request):
-	title =' Sigh Up Now'
+	title ='Войти как гость'
 	form = SighUpForm(request.POST or None)
 	context = {
 	"title": title,
 	'form': form
 	}
-
+	
 	if form.is_valid():
 		#form.save()
 		instance = form.save(commit = False )
@@ -28,12 +28,12 @@ def home(request):
 			"title": 'Thank You'
 		}
 
-	if request.user.is_authenticated() and request.user.is_staff:
-		#print(SighUp.objects.all())
-		queryset = SighUp.objects.all().order_by('-timestamp').filter(full_name__icontains ='Kup9')
-		context = {
-		 'queryset': queryset
-		}
+	# if request.user.is_authenticated() and request.user.is_staff:
+	# 	#print(SighUp.objects.all())
+	# 	queryset = SighUp.objects.all().order_by('-timestamp').filter(full_name__icontains ='Kup9')
+	# 	context = {
+	# 	 'queryset': queryset
+	# 	}
 
 	return render(request, "home.html", context)
 
@@ -69,6 +69,12 @@ def contact(request):
 		'form': form,
 		'title':title
 	}
+
+	if form.is_valid():
+		#form.save()
+		context = {
+			"title": 'Thank You, we will answer you ASAP'
+		}
 
 	return render(request, "forms.html", context)
 
