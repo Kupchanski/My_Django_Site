@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['kup9nps.pythonanywhere.com']
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'kup9python@gmail.com'
-EMAIL_HOST_PASSWORD = 'zippa321'
+EMAIL_HOST_PASSWORD = '*****'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
